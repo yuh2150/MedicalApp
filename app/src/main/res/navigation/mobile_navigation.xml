@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.medical.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_chuyenkhoa"
+            app:destination="@id/nav_chuyenkhoa" />
+        <action
+            android:id="@+id/action_nav_home_to_bacSiFragment"
+            app:destination="@id/nav_bacsi" />
+        <action
+            android:id="@+id/action_nav_home_to_lienHeFragment"
+            app:destination="@id/nav_lienhe" />
+        <action
+            android:id="@+id/action_nav_home_to_gioiThieuFragment"
+            app:destination="@id/nav_gioithieu" />
+        <action
+            android:id="@+id/action_nav_home_to_caNhanFragment"
+            app:destination="@id/nav_user" />
+        <action
+            android:id="@+id/action_nav_home_to_lichHenFragment"
+            app:destination="@id/nav_lich" />
+        <action
+            android:id="@+id/action_nav_home_to_thongBaoFragment"
+            app:destination="@id/nav_thongbao" />
+        <action
+            android:id="@+id/action_nav_home_to_itemBacSiFragment"
+            app:destination="@id/itemBacSiFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_itemChuyenKhoaFragment"
+            app:destination="@id/itemChuyenKhoaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_chuyenkhoa"
+        android:name="com.example.medical.ui.chuyenkhoa.ChuyenKhoaFragment"
+        android:label="ChuyenKhoa"
+        tools:layout="@layout/fragment_chuyenkhoa" >
+        <action
+            android:id="@+id/action_nav_chuyenkhoa_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_chuyenkhoa_to_itemChuyenKhoaFragment"
+            app:destination="@id/itemChuyenKhoaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemChuyenKhoaFragment"
+        android:name="com.example.medical.ui.chuyenkhoa.ItemChuyenKhoaFragment"
+        android:label="ItemChuyenChoa"
+        tools:layout="@layout/fragment_item_chuyen_khoa" >
+        <action
+            android:id="@+id/action_itemChuyenKhoaFragment_to_nav_chuyenkhoa"
+            app:destination="@id/nav_chuyenkhoa" />
+        <argument
+            android:name="currentChuyenKhoa"
+            app:argType="com.example.medical.entity.ChuyenKhoa" />
+        <action
+            android:id="@+id/action_itemChuyenKhoaFragment_to_itemBacSiFragment"
+            app:destination="@id/itemBacSiFragment" />
+        <action
+            android:id="@+id/action_itemChuyenKhoaFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_bacsi"
+        android:name="com.example.medical.ui.bacsi.BacSiFragment"
+        android:label="fragment_bac_si"
+        tools:layout="@layout/fragment_bac_si" >
+        <action
+            android:id="@+id/action_bacSiFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_bacSiFragment_to_itemBacSiFragment"
+            app:destination="@id/itemBacSiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBacSiFragment"
+        android:name="com.example.medical.ui.bacsi.ItemBacSiFragment"
+        android:label="fragment_item_bac_si"
+        tools:layout="@layout/fragment_item_bac_si" >
+        <action
+            android:id="@+id/action_itemBacSiFragment_to_bacSiFragment"
+            app:destination="@id/nav_bacsi" />
+        <argument
+            android:name="currentBacSi"
+            app:argType="com.example.medical.entity.BacSi" />
+        <action
+            android:id="@+id/action_itemBacSiFragment_to_keHoachFragment"
+            app:destination="@id/keHoachFragment" />
+        <action
+            android:id="@+id/action_itemBacSiFragment_to_itemChuyenKhoaFragment"
+            app:destination="@id/itemChuyenKhoaFragment" />
+        <action
+            android:id="@+id/action_itemBacSiFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gioithieu"
+        android:name="com.example.medical.GioiThieuFragment"
+        android:label="fragment_gioi_thieu"
+        tools:layout="@layout/fragment_gioi_thieu" >
+        <action
+            android:id="@+id/action_gioiThieuFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_lienhe"
+        android:name="com.example.medical.LienHeFragment"
+        android:label="fragment_lien_he"
+        tools:layout="@layout/fragment_lien_he" >
+        <action
+            android:id="@+id/action_lienHeFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_user"
+        android:name="com.example.medical.ui.canhan.CaNhanFragment"
+        android:label="fragment_ca_nhan"
+        tools:layout="@layout/fragment_ca_nhan" >
+        <action
+            android:id="@+id/action_caNhanFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_user_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_lich"
+        android:name="com.example.medical.LichHenFragment"
+        android:label="fragment_lich_hen"
+        tools:layout="@layout/fragment_lich_hen" >
+        <action
+            android:id="@+id/action_lichHenFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_thongbao"
+        android:name="com.example.medical.ThongBaoFragment"
+        android:label="fragment_thong_bao"
+        tools:layout="@layout/fragment_thong_bao" >
+        <action
+            android:id="@+id/action_thongBaoFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.medical.ui.canhan.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.medical.ui.canhan.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/keHoachFragment"
+        android:name="com.example.medical.ui.bacsi.KeHoachFragment"
+        android:label="fragment_ke_hoach"
+        tools:layout="@layout/fragment_ke_hoach" >
+        <action
+            android:id="@+id/action_keHoachFragment_to_itemBacSiFragment"
+            app:destination="@id/itemBacSiFragment" />
+        <argument
+            android:name="currentKeHoach"
+            app:argType="com.example.medical.entity.KeHoach" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.medical.ui.canhan.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_nav_user"
+            app:destination="@id/nav_user" />
+        <action
+            android:id="@+id/action_startFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+</navigation>

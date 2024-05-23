@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Trang chủ" />
+        <item
+            android:id="@+id/nav_chuyenkhoa"
+            android:icon="@drawable/baseline_medical_services_24"
+            android:title="Chuyên khoa" />
+        <item
+            android:id="@+id/nav_bacsi"
+            android:icon="@drawable/baseline_person_24"
+            android:title="Bác sĩ - Chuyên gia" />
+        <item
+            android:id="@+id/nav_gioithieu"
+            android:icon="@drawable/baseline_pending_24"
+            android:title="Giới thiệu" />
+        <item
+            android:id="@+id/nav_lienhe"
+            android:icon="@drawable/baseline_call_24"
+            android:title="Liên Hệ" />
+
+    </group>
+</menu>
