@@ -24,7 +24,7 @@ class CaNhanFragment : Fragment() {
 
     private var _binding: FragmentCaNhanBinding?= null
     private val binding get() = _binding!!
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +40,29 @@ class CaNhanFragment : Fragment() {
             if (activity.isLoggin_ == false) {
                 findNavController().navigate(R.id.startFragment)
             }
+        }
+
+        binding.thongtin.setOnClickListener{
+            findNavController().navigate(R.id.infoUserFragment)
+        }
+        binding.kehoach.setOnClickListener{
+            findNavController().navigate(R.id.QLyKeHoachFragment)
+        }
+        binding.lichhen.setOnClickListener{
+            findNavController().navigate(R.id.QLyLichHenFragment)
+        }
+
+        binding.logout.setOnClickListener{
+            auth = FirebaseAuth.getInstance()
+            auth.signOut()
+            val activity = activity as? MainActivity
+
+            if (activity != null) {
+                activity.isLoggin_ = false
+            }
+
+
+            findNavController().navigate(R.id.nav_home)
         }
 
 

@@ -36,7 +36,7 @@ class ItemChuyenKhoaFragment : Fragment() {
         binding.textTitle.setText(args.currentChuyenKhoa.name)
         binding.textMota.setText(args.currentChuyenKhoa.mota)
 
-        val adapter_bs = BacSiAdapter()
+        val adapter_bs = BacSiAdapter(requireContext())
 
         args.currentChuyenKhoa.id_ck?.let {
             mChuyenKhoaViewModel.getBacSiByIdCk(it).observe(viewLifecycleOwner, Observer { bacsi ->

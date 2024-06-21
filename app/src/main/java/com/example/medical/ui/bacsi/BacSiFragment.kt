@@ -29,7 +29,6 @@ class BacSiFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         _binding = FragmentBacSiBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -37,7 +36,7 @@ class BacSiFragment : Fragment() {
         mBacSiViewModel = ViewModelProvider(this).get(BacSiViewModel::class.java)
 
         val recyclerView : RecyclerView = binding.recycleView
-        val adapter = BacSiAdapter()
+        val adapter = BacSiAdapter(requireContext())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -49,10 +48,10 @@ class BacSiFragment : Fragment() {
         return view
     }
 
-    private fun insertData() {
-        val bacsi = BacSi(0,1,2,"qưeqweqweqweqwe","ddd","dd","dsd","","","","","",2000 )
-        mBacSiViewModel.addBacSi(bacsi)
-    }
+//    private fun insertData() {
+//        val bacsi = BacSi(0,1,2,"qưeqweqweqweqwe","ddd","dd","dsd","","","","","",2000 )
+//        mBacSiViewModel.addBacSi(bacsi)
+//    }
 
 
 }

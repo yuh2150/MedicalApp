@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.medical.db.BacSiDAO
 import com.example.medical.entity.BacSi
+import com.example.medical.entity.BenhNhan
 import com.example.medical.entity.KeHoachWithStatus
+import com.example.medical.entity.LichHen
 import com.example.medical.entity.Status
 import com.example.medical.module.DatabaseModule
 import com.example.medical.repository.BacSiRepository
@@ -15,7 +17,6 @@ import kotlinx.coroutines.launch
 
 class BacSiViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData : LiveData<List<BacSi>>
-//    val ngay:  LiveData<List<String>>
     private  val repository: BacSiRepository
 
 
@@ -32,6 +33,22 @@ class BacSiViewModel(application: Application) : AndroidViewModel(application) {
             repository.addBacSi(bacSi)
         }
     }
+    fun addLichHen(lichHen: LichHen){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.addLichHen(lichHen)
+        }
+    }
+
+    fun addBenhNhan(benhNhan: BenhNhan){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.addBenhNhan(benhNhan)
+        }
+    }
+
+    fun getBenhNhanById(userID : String): LiveData<List<BenhNhan>> {
+        return repository.getBenhNhanById(userID)
+    }
+
     fun getNgayListByIdBs(id_bs: Int): LiveData<List<String>> {
 
         return repository.getNgayByIdBs(id_bs)

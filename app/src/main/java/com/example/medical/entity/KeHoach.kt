@@ -11,8 +11,8 @@ import kotlinx.android.parcel.Parcelize
 data class KeHoach (
     @PrimaryKey(autoGenerate = true)
     val id_kh : Int,
-    val id_bs : Int?= null,
-    val id_status :Int ?= null,
+    var id_bs : Int?= null,
+    var id_status :Int ?= null,
     val trangthai : Int ?= null
 ): Parcelable
 

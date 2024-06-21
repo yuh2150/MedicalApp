@@ -12,8 +12,9 @@ import com.example.medical.R
 import com.example.medical.entity.BacSi
 import com.example.medical.ui.bacsi.BacSiFragmentDirections
 import com.example.medical.ui.chuyenkhoa.ItemChuyenKhoaFragmentDirections
+import android.content.Context
 
-class BacSiAdapter: RecyclerView.Adapter<BacSiAdapter.MyViewHolder>() {
+class BacSiAdapter(private val context: Context): RecyclerView.Adapter<BacSiAdapter.MyViewHolder>() {
 
     private var bacsiList = emptyList<BacSi>()
 
@@ -36,7 +37,11 @@ class BacSiAdapter: RecyclerView.Adapter<BacSiAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val ItemsViewModel = bacsiList[position]
-        holder.imageView.setImageResource(R.mipmap.bacsilehoang)
+        val resourceName = ItemsViewModel.hinhanh +  "_foreground"
+        val resourceId = context.resources.getIdentifier(resourceName, "mipmap", context.packageName)
+
+
+        holder.imageView.setImageResource(resourceId)
         holder.title.setText(ItemsViewModel.name)
         holder.descript.setText(ItemsViewModel.mota)
 

@@ -22,6 +22,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.medical.databinding.ActivityMainBinding
+import com.example.medical.entity.User
 import com.example.medical.module.DBcopy
 import com.example.medical.ui.bacsi.BacSiFragment
 import com.example.medical.ui.chuyenkhoa.ChuyenKhoaFragment
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
     var isLoggin_ : Boolean = false
 
     private var db : DBcopy? =null
+
+    var user = User("","","","","","",0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             checkUserData(currentUser.uid)
+//            getUsersData(currentUser.uid)
         } else {
             // User is not signed in, you can proceed with the login flow or any other action
         }
@@ -118,15 +122,6 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-
-
-    private fun openFragment (fragment : Fragment){
-        val fragmentTransaction : FragmentTransaction = fragmentmanager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-
-    }
     private fun checkUserData(userId: String) {
         val userRef = firebaseDatabase.reference.child("users").child(userId)
 
@@ -134,6 +129,12 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 val isLoggedIn = dataSnapshot.getValue(Boolean::class.java)
+//                val userData = dataSnapshot.getValue(User::class.java)
+//
+//                if (userData != null) {
+//                    user = userData
+//                }
+
                 if (isLoggedIn != null && isLoggedIn) {
                     isLoggin_ = true
                 } else {
@@ -145,6 +146,25 @@ class MainActivity : AppCompatActivity() {
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Handle error
+            }
+        })
+    }
+    fun getUsersData(userId: String) {
+
+        val usersRef = firebaseDatabase.reference.child("users")
+
+        usersRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // Xử lý dữ liệu lấy được
+                for (userSnapshot in snapshot.children) {
+                    val user = userSnapshot.getValue(User::class.java)
+                    Log.d("add",user.toString())
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Xử lý lỗi nếu có
+                println("Failed to read value: ${error.toException()}")
             }
         })
     }

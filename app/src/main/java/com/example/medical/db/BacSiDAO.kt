@@ -6,15 +6,25 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.medical.entity.BacSi
+import com.example.medical.entity.BenhNhan
 import com.example.medical.entity.KeHoachWithStatus
+import com.example.medical.entity.LichHen
 import com.example.medical.entity.Status
-import java.util.ArrayList
 
 
 @Dao
 interface BacSiDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addBacSi(bacSi: BacSi)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addLichHen(lichHen: LichHen)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addBenhNhan(benhNhan : BenhNhan)
+
+    @Query("SELECT * FROM benhnhan WHERE userID = :userID  ")
+    fun getBenhNhanById(userID: String): LiveData<List<BenhNhan>>
 
     @Query("SELECT * FROM bacsi ORDER BY id_bs ASC")
     fun readAllData() : LiveData<List<BacSi>>
@@ -25,7 +35,7 @@ interface BacSiDAO {
     @Query("SELECT DISTINCT s.ngay FROM kehoach as k, status as s WHERE k.id_bs = :id_bs and k.id_status = s.id_status")
     fun getNgayByIdBs(id_bs: Int): LiveData<List<String>>
 
-    @Query("SELECT DISTINCT s.gio ,k.*  FROM kehoach as k,status as s WHERE k.id_bs = :id_bs and k.id_status = s.id_status and s.ngay = :ngay and k.trangthai=0 ;")
+    @Query("SELECT DISTINCT s.gio ,k.*  FROM kehoach as k,status as s WHERE k.id_bs = :id_bs and k.id_status = s.id_status and s.ngay = :ngay and k.trangthai= 0 ;")
     fun getGioByIdBsAndNgay(id_bs: Int, ngay: String): LiveData<List<KeHoachWithStatus>>
 
     @Query("SELECT s.*  FROM kehoach as k,status as s WHERE k.id_kh = :id_kh and k.id_status = s.id_status; ")

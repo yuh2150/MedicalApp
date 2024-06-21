@@ -10,13 +10,13 @@ import kotlinx.android.parcel.Parcelize
 data class BenhNhan (
     @PrimaryKey(autoGenerate = true)
     val id_bn: Int,
-    val userID :  Int?= null,
-    val name : String?= null,
-    val sdt : String?= null,
+    var userID :  String?= null,
+    var name : String?= null,
+    var sdt : String?= null,
     val gioitinh :Int?= null,
-    val ngaysinh : String?= null,
-    val tinh : String?= null,
-    val huyen : String?= null,
-    val xa : String?= null,
-    val diachi : String?= null
+    var ngaysinh : String?= null,
+    var tinh : String?= null,
+    var huyen : String?= null,
+    var xa : String?= null,
+    var diachi : String?= null
 ): Parcelable

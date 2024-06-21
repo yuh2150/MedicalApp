@@ -1,5 +1,6 @@
 package com.example.medical.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.example.medical.R
 import com.example.medical.entity.BacSi
 import com.example.medical.ui.home.HomeFragmentDirections
 
-class BSNoiBatAdapter: RecyclerView.Adapter<BSNoiBatAdapter.MyViewHolder>() {
+class BSNoiBatAdapter(private val context: Context): RecyclerView.Adapter<BSNoiBatAdapter.MyViewHolder>() {
 
     private var bacsiList = emptyList<BacSi>()
 
@@ -34,7 +35,10 @@ class BSNoiBatAdapter: RecyclerView.Adapter<BSNoiBatAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val ItemsViewModel = bacsiList[position]
-        holder.imageView.setImageResource(R.mipmap.bacsilehoang)
+        val resourceName = ItemsViewModel.hinhanh +  "_foreground"
+        val resourceId = context.resources.getIdentifier(resourceName, "mipmap", context.packageName)
+
+        holder.imageView.setImageResource(resourceId)
         holder.title.setText(ItemsViewModel.name)
 
         holder.item.setOnClickListener{

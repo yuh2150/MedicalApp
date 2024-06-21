@@ -14,8 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medical.R
-import com.example.medical.adapters.BacSiAdapter
-import com.example.medical.adapters.KeHoachAdapter
+import com.example.medical.adapters.LichAdapter
 import com.example.medical.databinding.FragmentItemBacSiBinding
 import com.example.medical.viewmodel.BacSiViewModel
 
@@ -29,7 +28,7 @@ class ItemBacSiFragment : Fragment() {
     private lateinit var mBacSiViewModel: BacSiViewModel
 
     private var ngay = ArrayList<String>()
-    private var keHoachAdapter = KeHoachAdapter()
+    private var keHoachAdapter = LichAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +39,12 @@ class ItemBacSiFragment : Fragment() {
         mBacSiViewModel = ViewModelProvider(this).get(BacSiViewModel::class.java)
 
         binding.txtTitle.setText(args.currentBacSi.name)
-        binding.imageView.setImageResource(R.mipmap.bacsilehoang)
+
+        val resourceName = args.currentBacSi.hinhanh +  "_foreground"
+        val resourceId = context?.resources?.getIdentifier(resourceName, "mipmap", context!!.packageName)
+        if (resourceId != null) {
+            binding.imageView.setImageResource(resourceId)
+        }
         binding.txtChucvu.setText(args.currentBacSi.chucvu)
         binding.txtLamviec.setText(args.currentBacSi.lamviec)
 
@@ -65,10 +69,7 @@ class ItemBacSiFragment : Fragment() {
                     mBacSiViewModel.getGioListByIdBsAndNgay(args.currentBacSi.id_bs,ngay[position].toString())
                         .observe(viewLifecycleOwner, Observer {item->
                             keHoachAdapter.setDataGio(item)
-                            Log.d("111",item.toString())
                     })}else {
-//                    // Xử lý trường hợp khi view là null
-//                    Log.e("Error", "View is null in onItemSelected")
                 }
 
             }
@@ -77,30 +78,6 @@ class ItemBacSiFragment : Fragment() {
                 // write code to perform some action
             }
         }
-//        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-//                // Kiểm tra xem tham số view có null không trước khi sử dụng nó
-//                if (view != null) {
-//                    mBacSiViewModel.getGioListByIdBsAndNgay(args.currentBacSi.id_bs, ngay[position].toString())
-//                        .observe(viewLifecycleOwner, Observer { item ->
-//                            keHoachAdapter.setDataGio(item)
-//                            Log.d("111", item.toString())
-//                        })
-//                } else {
-//                    // Xử lý trường hợp khi view là null
-//                    Log.e("Error", "View is null in onItemSelected")
-//                }
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // Xử lý trường hợp không có mục nào được chọn
-//            }
-//        }
-
-
-
-
-//        binding.txtLamviec.setText()
 
 
 

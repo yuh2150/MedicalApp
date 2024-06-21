@@ -122,7 +122,7 @@ class HomeFragment : Fragment() {
 
         mChuyenKhoaViewModel = ViewModelProvider(this).get(ChuyenKhoaViewModel::class.java)
         val recyclerView : RecyclerView = binding.recycleViewCkhome
-        val adapter = ChuyenKhoaAdapter()
+        val adapter = ChuyenKhoaAdapter(requireContext())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         mChuyenKhoaViewModel.readAllData.observe(viewLifecycleOwner, Observer {chuyenkhoa ->
@@ -135,7 +135,7 @@ class HomeFragment : Fragment() {
         mBacSiViewModel = ViewModelProvider(this).get(BacSiViewModel::class.java)
 
         val recyclerView_bs : RecyclerView = binding.recycleViewBacsi
-        val adapter_bs = BSNoiBatAdapter()
+        val adapter_bs = BSNoiBatAdapter(requireContext())
         recyclerView_bs.adapter = adapter_bs
         recyclerView_bs.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
 

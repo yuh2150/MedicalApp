@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 data class BacSi (
     @PrimaryKey(autoGenerate = true)
     val id_bs: Int,
-    val userID: Int?= null,
+    val userID: String?= null,
     val id_ck: Int?= null,
     val name: String?= null,
     val hinhanh: String?= null,

@@ -8,7 +8,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.medical.db.BacSiDAO
 import com.example.medical.db.BenhNhanDAO
+import com.example.medical.db.KeHoachDAO
 import com.example.medical.db.LichHenDAO
+import com.example.medical.db.StatusDAO
 import com.example.medical.entity.BacSi
 import com.example.medical.entity.BenhNhan
 import com.example.medical.entity.ChuyenKhoa
@@ -22,6 +24,8 @@ abstract class DatabaseModule : RoomDatabase() {
     abstract fun bacsiDAO(): BacSiDAO
     abstract fun benhnhaDAO() :BenhNhanDAO
     abstract fun lichhenDAO() : LichHenDAO
+    abstract fun kehoachDAO() : KeHoachDAO
+    abstract fun statusDAO() : StatusDAO
 
 
 
@@ -38,7 +42,7 @@ abstract class DatabaseModule : RoomDatabase() {
                     context.applicationContext,
                     DatabaseModule::class.java,
                     "medicalDB"
-                ).fallbackToDestructiveMigration().build()
+                ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

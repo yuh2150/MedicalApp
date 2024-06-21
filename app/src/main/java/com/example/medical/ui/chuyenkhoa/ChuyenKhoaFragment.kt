@@ -40,7 +40,7 @@ class ChuyenKhoaFragment : Fragment() {
 //        val dataList =
 
         val recyclerView :RecyclerView = binding.recycleView
-        val adapter = ChuyenKhoaAdapter()
+        val adapter = ChuyenKhoaAdapter(requireContext())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),3)
 

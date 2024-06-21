@@ -13,7 +13,7 @@ import com.example.medical.entity.KeHoach
 import com.example.medical.entity.KeHoachWithStatus
 import com.example.medical.ui.bacsi.ItemBacSiFragmentDirections
 
-class KeHoachAdapter : RecyclerView.Adapter<KeHoachAdapter.MyViewHolder>() {
+class LichAdapter : RecyclerView.Adapter<LichAdapter.MyViewHolder>() {
 
     private var kehoachList = emptyList<KeHoach>()
     private var gioList = emptyList<KeHoachWithStatus>()

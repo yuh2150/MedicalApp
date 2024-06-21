@@ -31,7 +31,7 @@
         <action
             android:id="@+id/action_nav_home_to_thongBaoFragment"
             app:destination="@id/nav_thongbao" />
-        <action
+        <actionhgfg
             android:id="@+id/action_nav_home_to_itemBacSiFragment"
             app:destination="@id/itemBacSiFragment" />
         <action
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/nav_chuyenkhoa"
         android:name="com.example.medical.ui.chuyenkhoa.ChuyenKhoaFragment"
-        android:label="ChuyenKhoa"
+        android:label="Chuyên khoa"
         tools:layout="@layout/fragment_chuyenkhoa" >
         <action
             android:id="@+id/action_nav_chuyenkhoa_to_nav_home"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/itemChuyenKhoaFragment"
         android:name="com.example.medical.ui.chuyenkhoa.ItemChuyenKhoaFragment"
-        android:label="ItemChuyenChoa"
+        android:label="Chi tiết chuyên khoa"
         tools:layout="@layout/fragment_item_chuyen_khoa" >
         <action
             android:id="@+id/action_itemChuyenKhoaFragment_to_nav_chuyenkhoa"
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/nav_bacsi"
         android:name="com.example.medical.ui.bacsi.BacSiFragment"
-        android:label="fragment_bac_si"
+        android:label="Bác sĩ"
         tools:layout="@layout/fragment_bac_si" >
         <action
             android:id="@+id/action_bacSiFragment_to_nav_home"
@@ -83,7 +83,7 @@
     <fragment
         android:id="@+id/itemBacSiFragment"
         android:name="com.example.medical.ui.bacsi.ItemBacSiFragment"
-        android:label="fragment_item_bac_si"
+        android:label="Chi tiết bác sĩ"
         tools:layout="@layout/fragment_item_bac_si" >
         <action
             android:id="@+id/action_itemBacSiFragment_to_bacSiFragment"
@@ -104,7 +104,7 @@
     <fragment
         android:id="@+id/nav_gioithieu"
         android:name="com.example.medical.GioiThieuFragment"
-        android:label="fragment_gioi_thieu"
+        android:label="Giới thiệu"
         tools:layout="@layout/fragment_gioi_thieu" >
         <action
             android:id="@+id/action_gioiThieuFragment_to_nav_home"
@@ -113,7 +113,7 @@
     <fragment
         android:id="@+id/nav_lienhe"
         android:name="com.example.medical.LienHeFragment"
-        android:label="fragment_lien_he"
+        android:label="Liên hệ"
         tools:layout="@layout/fragment_lien_he" >
         <action
             android:id="@+id/action_lienHeFragment_to_nav_home"
@@ -122,7 +122,7 @@
     <fragment
         android:id="@+id/nav_user"
         android:name="com.example.medical.ui.canhan.CaNhanFragment"
-        android:label="fragment_ca_nhan"
+        android:label="Cá nhân"
         tools:layout="@layout/fragment_ca_nhan" >
         <action
             android:id="@+id/action_caNhanFragment_to_nav_home"
@@ -130,11 +130,23 @@
         <action
             android:id="@+id/action_nav_user_to_startFragment"
             app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_nav_user_to_infoUserFragment"
+            app:destination="@id/infoUserFragment" />
+        <action
+            android:id="@+id/action_nav_user_to_QLyLichHenFragment"
+            app:destination="@id/QLyLichHenFragment" />
+        <action
+            android:id="@+id/action_nav_user_to_QLyKeHoachFragment"
+            app:destination="@id/QLyKeHoachFragment" />
+        <action
+            android:id="@+id/action_nav_user_to_qlyBenhNhanFragment"
+            app:destination="@id/qlyBenhNhanFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_lich"
-        android:name="com.example.medical.LichHenFragment"
-        android:label="fragment_lich_hen"
+        android:name="com.example.medical.ui.lichhen.LichHenFragment"
+        android:label="Lịch hẹn"
         tools:layout="@layout/fragment_lich_hen" >
         <action
             android:id="@+id/action_lichHenFragment_to_nav_home"
@@ -143,7 +155,7 @@
     <fragment
         android:id="@+id/nav_thongbao"
         android:name="com.example.medical.ThongBaoFragment"
-        android:label="fragment_thong_bao"
+        android:label="Thông báo"
         tools:layout="@layout/fragment_thong_bao" >
         <action
             android:id="@+id/action_thongBaoFragment_to_nav_home"
@@ -152,7 +164,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.medical.ui.canhan.LoginFragment"
-        android:label="fragment_login"
+        android:label="Đăng nhập"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_startFragment"
@@ -161,7 +173,7 @@
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.medical.ui.canhan.SignupFragment"
-        android:label="fragment_signup"
+        android:label="Đăng ký"
         tools:layout="@layout/fragment_signup" >
         <action
             android:id="@+id/action_signupFragment_to_startFragment"
@@ -170,7 +182,7 @@
     <fragment
         android:id="@+id/keHoachFragment"
         android:name="com.example.medical.ui.bacsi.KeHoachFragment"
-        android:label="fragment_ke_hoach"
+        android:label=""
         tools:layout="@layout/fragment_ke_hoach" >
         <action
             android:id="@+id/action_keHoachFragment_to_itemBacSiFragment"
@@ -182,7 +194,7 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.medical.ui.canhan.StartFragment"
-        android:label="fragment_start"
+        android:label=""
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_nav_user"
@@ -193,6 +205,93 @@
         <action
             android:id="@+id/action_startFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/QLyKeHoachFragment"
+        android:name="com.example.medical.ui.kehoach.QLyKeHoachFragment"
+        android:label=""
+        tools:layout="@layout/fragment_qly_ke_hoach" >
+        <action
+            android:id="@+id/action_QLyKeHoachFragment_to_nav_user"
+            app:destination="@id/nav_user" />
+        <action
+            android:id="@+id/action_QLyKeHoachFragment_to_addKeHoachFragment"
+            app:destination="@id/addKeHoachFragment" />
+        <action
+            android:id="@+id/action_QLyKeHoachFragment_to_addStatusFragment"
+            app:destination="@id/addStatusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/QLyLichHenFragment"
+        android:name="com.example.medical.ui.lichhen.QLyLichHenFragment"
+        android:label=""
+        tools:layout="@layout/fragment_qly_lich_hen" >
+        <action
+            android:id="@+id/action_QLyLichHenFragment_to_nav_user"
+            app:destination="@id/nav_user" />
+        <action
+            android:id="@+id/action_QLyLichHenFragment_to_itemQLyLichFragment"
+            app:destination="@id/itemQLyLichFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoUserFragment"
+        android:name="com.example.medical.ui.canhan.InfoUserFragment"
+        android:label=""
+        tools:layout="@layout/fragment_info_user" >
+        <action
+            android:id="@+id/action_infoUserFragment_to_nav_user"
+            app:destination="@id/nav_user" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemQLyLichFragment"
+        android:name="com.example.medical.ui.lichhen.ItemQLyLichFragment"
+        android:label=""
+        tools:layout="@layout/fragment_item_qly_lich" >
+        <action
+            android:id="@+id/action_itemQLyLichFragment_to_QLyLichHenFragment"
+            app:destination="@id/QLyLichHenFragment" />
+        <argument
+            android:name="currentLich"
+            app:argType="com.example.medical.entity.LichHen" />
+    </fragment>
+    <fragment
+        android:id="@+id/addKeHoachFragment"
+        android:name="com.example.medical.ui.kehoach.AddKeHoachFragment"
+        android:label=""
+        tools:layout="@layout/fragment_add_ke_hoach" >
+        <action
+            android:id="@+id/action_addKeHoachFragment_to_QLyKeHoachFragment"
+            app:destination="@id/QLyKeHoachFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStatusFragment"
+        android:name="com.example.medical.ui.kehoach.AddStatusFragment"
+        android:label=""
+        tools:layout="@layout/fragment_add_status" >
+        <action
+            android:id="@+id/action_addStatusFragment_to_QLyKeHoachFragment"
+            app:destination="@id/QLyKeHoachFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qlyBenhNhanFragment"
+        android:name="com.example.medical.ui.benhnhan.QlyBenhNhanFragment"
+        android:label=""
+        tools:layout="@layout/fragment_qly_benh_nhan" >
+        <action
+            android:id="@+id/action_qlyBenhNhanFragment_to_nav_user"
+            app:destination="@id/nav_user" />
+        <action
+            android:id="@+id/action_qlyBenhNhanFragment_to_itemBenhNhanFragment"
+            app:destination="@id/itemBenhNhanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBenhNhanFragment"
+        android:name="com.example.medical.ui.benhnhan.ItemBenhNhanFragment"
+        android:label=""
+        tools:layout="@layout/fragment_item_benh_nhan" >
+        <action
+            android:id="@+id/action_itemBenhNhanFragment_to_qlyBenhNhanFragment"
+            app:destination="@id/qlyBenhNhanFragment" />
     </fragment>
 
 </navigation>

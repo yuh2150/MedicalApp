@@ -1,5 +1,8 @@
 package com.example.medical.adapters
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +20,7 @@ import com.example.medical.ui.chuyenkhoa.ItemChuyenKhoaFragmentDirections
 import com.example.medical.ui.home.HomeFragmentDirections
 
 
-class ChuyenKhoaAdapter:  RecyclerView.Adapter<ChuyenKhoaAdapter.MyViewHolder>() {
+class ChuyenKhoaAdapter(private val context: Context):  RecyclerView.Adapter<ChuyenKhoaAdapter.MyViewHolder>() {
 
     private var chuyenkhoaList = emptyList<ChuyenKhoa>()
 
@@ -36,13 +39,18 @@ class ChuyenKhoaAdapter:  RecyclerView.Adapter<ChuyenKhoaAdapter.MyViewHolder>()
         return chuyenkhoaList.size
     }
 
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 //        val currentItem: ChuyenKhoa = chuyenkhoaList[position]
 //        var name = currentItem.name
 
         val ItemsViewModel = chuyenkhoaList[position]
 //        holder.imageView.setImageResource(ItemsViewModel.image)
-        holder.imageView.setImageResource(R.mipmap.khoaxuongkhop)
+        val resourceName = ItemsViewModel.hinhanh +  "_foreground"
+        val resourceId = context.resources.getIdentifier(resourceName, "mipmap", context.packageName)
+//        Log.d("Sdasdasd",resourceId.toString())
+        holder.imageView.setImageResource(resourceId)
+//        holder.imageView.setImageResource(R.mipmap.khoaxuongkhop)
         holder.textView.text = ItemsViewModel.name
 
         holder.item.setOnClickListener{

@@ -62,7 +62,9 @@ class LoginFragment : Fragment() {
                         val userData = userSnapshot.getValue(User::class.java)
                         if(userData!=null && userData.password == password){
                             val activity = activity as? MainActivity
+
                             if (activity != null) {
+                                activity.user = userData
                                 activity.isLoggin_ = true
                             }
                             Toast.makeText(requireContext(),"Ok",Toast.LENGTH_LONG).show()
