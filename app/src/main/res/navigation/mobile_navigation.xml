@@ -31,7 +31,7 @@
         <action
             android:id="@+id/action_nav_home_to_thongBaoFragment"
             app:destination="@id/nav_thongbao" />
-        <actionhgfg
+        <action
             android:id="@+id/action_nav_home_to_itemBacSiFragment"
             app:destination="@id/itemBacSiFragment" />
         <action
